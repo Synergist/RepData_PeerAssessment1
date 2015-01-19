@@ -1,40 +1,53 @@
----
-title: "Reproducible Research: Peer Assessment 1"
-output: 
-  html_document:
-    keep_md: true
----
+# Reproducible Research: Peer Assessment 1
 
 
 ## Loading and preprocessing the data
 1. We unzip the data with 
-```{r}
+
+```r
 unzip("activity.zip")
 ```
 We then read the csv into the data variable with 
-```{r} 
+
+```r
 data <- read.csv(file = "activity.csv", stringsAsFactors = FALSE)
 ```
 2. We convert the 'date' column to a Date type as follows: 
-```{r} 
+
+```r
 data$date <- as.Date(data$date, format="%Y-%m-%d")
-``` 
+```
 
 
 ## What is mean total number of steps taken per day?
 1. To make a histogram of the total number of steps taken each day, we perform the following:
-```{r}
+
+```r
 dataSplitByDay <- split(data, data$date) 
 stepsPerDay <- sapply(dataSplitByDay, function(x) sum(x$steps, na.rm=TRUE))
 hist(stepsPerDay
     , xlab = "total number steps taken in a day"
     , main = "Histogram of total number steps taken each day")
 ```
-2. Mean and median of total steps per day:
-```{r}
+
+![](PA1_template_files/figure-html/unnamed-chunk-4-1.png) 
+
+```r
 mean(stepsPerDay)
+```
+
+```
+## [1] 9354
+```
+
+```r
 median(stepsPerDay)
 ```
+
+```
+## [1] 10395
+```
+
 ## What is the average daily activity pattern?
 
 
