@@ -1,3 +1,5 @@
+ATTENTION GRADERS: I FORGOT TO PUT THE SHA-1: 7305009766ec2e465191d8593d32ccda07b6f738
+
 ## Introduction
 
 It is now possible to collect a large amount of data about personal
